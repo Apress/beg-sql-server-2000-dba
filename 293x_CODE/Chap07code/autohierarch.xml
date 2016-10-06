@@ -1,0 +1,9 @@
+<root xmlns:sql="urn:schemas-microsoft-com:xml-sql" >
+  <sql:query>
+    SELECT Customers.CustomerID, OrderID
+    FROM Customers
+    LEFT OUTER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+    ORDER BY Customers.CustomerID
+    FOR XML AUTO
+  </sql:query>
+</root>

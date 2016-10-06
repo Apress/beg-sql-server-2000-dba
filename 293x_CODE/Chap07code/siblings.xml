@@ -1,0 +1,32 @@
+<root xmlns:sql="urn:schemas-microsoft-com:xml-sql" >
+  <sql:query>
+    SELECT 1 as TAG,
+      NULL as Parent,
+      CustomerID as [Customer!1!CustomerID],
+      NULL as [Order!2!OrderID],
+      NULL as [Employee!3!LastName]
+    FROM Customers
+
+    UNION ALL
+    SELECT 2,
+      1,
+      Customers.CustomerID,
+      Orders.OrderID,
+      NULL
+    FROM Orders 
+    JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+
+    UNION ALL
+    SELECT DISTINCT 3,
+      1,
+      Customers.CustomerID,
+      NULL,
+      Employees.LastName
+    FROM Customers 
+    JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+    JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+
+    ORDER BY [Customer!1!CustomerID],[Employee!3!LastName],[Order!2!OrderID]
+    FOR XML EXPLICIT
+  </sql:query>
+</root>

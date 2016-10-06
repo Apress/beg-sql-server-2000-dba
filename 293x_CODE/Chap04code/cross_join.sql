@@ -1,0 +1,1 @@
+SELECT * FROM Food_Table CROSS JOIN Group_Table

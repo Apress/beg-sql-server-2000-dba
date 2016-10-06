@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<Schema xmlns="urn:schemas-microsoft-com:xml-data"
+        xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+  <ElementType name="Customer" sql:relation="Customers" >
+
+    <!-- attribute declarations for columns-->
+
+    <AttributeType name="ID" />
+    <AttributeType name="name" />
+    <AttributeType name="Address" />
+    <AttributeType name="City" />
+    <AttributeType name="State" />
+
+
+    <!-- declare the instances  -->
+
+    <attribute type="ID" sql:field="CustomerID" />
+    <attribute type="name" sql:field="CompanyName" />
+    <attribute type="Address" />
+    <attribute type="City" />
+    <attribute type="State" sql:field="Region"/>
+  </ElementType>
+</Schema>
